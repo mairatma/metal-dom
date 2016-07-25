@@ -284,7 +284,7 @@ class dom {
 		var limit = event.currentTarget.parentNode;
 		var defFns = [];
 
-		while (currElement && currElement !== limit && !event.stopped) {
+		while (currElement && currElement !== limit && !event.stopped && !currElement.disabled) {
 			event.delegateTarget = currElement;
 			ret &= dom.triggerMatchedListeners_(container, currElement, event, defFns);
 			currElement = currElement.parentNode;
